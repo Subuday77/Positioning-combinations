@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		List<Integer> elements = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+		List<Integer> elements = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
 		if (elements.size() > 10) {
 			System.out.println("Sorry, we are not working with more, than 10 elements.");
 			System.exit(1);
@@ -67,10 +67,11 @@ public class Main {
 	private static boolean uniqueCheck(int[][] array, int j, int elementToCheck) {
 		String toCheck = "";
 		for (int i = 0; i < array[j].length; ++i) {
-			toCheck = toCheck.concat((String.valueOf(array[j][i])));
-		}
-		if (toCheck.contains(String.valueOf(elementToCheck))) {
-			return false;
+			toCheck = String.valueOf(array[j][i]);
+			if (toCheck.equals(String.valueOf(elementToCheck))) {
+				return false;
+			}
+
 		}
 		return true;
 	}
