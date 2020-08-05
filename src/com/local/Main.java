@@ -7,16 +7,15 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) {
-
-		List<Integer> elements = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+		List<String> elements = new ArrayList<>(Arrays.asList("Мама", "Мыла", "Раму"));
 		if (elements.size() > 10) {
 			System.out.println("Sorry, we are not working with more, than 10 elements.");
 			System.exit(1);
 		}
 		long numberOfResults = factorialCount(elements.size());
 		long repeatedNumbers = factorialCount(elements.size() - 1);
-		int[][] array = new int[(int) (repeatedNumbers * elements.size())][elements.size()];
-		System.out.println("Number of combinations: " + numberOfResults);
+		String[][] array = new String[(int) (repeatedNumbers * elements.size())][elements.size()];
+		// System.out.println("Number of combinations: " + numberOfResults);
 		for (int i = 0; i < elements.size(); ++i) {
 			int pos = 0;
 			int index = 0;
@@ -53,7 +52,7 @@ public class Main {
 		return n * factorialCount(n - 1);
 	}
 
-	private static void printArray(List<Integer> elements, long repeatedElements, int[][] array) {
+	private static void printArray(List<String> elements, long repeatedElements, String[][] array) {
 		for (int i = 0; i < (repeatedElements * elements.size()); ++i) {
 			for (int j = 0; j < elements.size(); ++j) {
 				System.out.print(array[i][j]);
@@ -64,7 +63,7 @@ public class Main {
 
 	}
 
-	private static boolean uniqueCheck(int[][] array, int j, int elementToCheck) {
+	private static boolean uniqueCheck(String[][] array, int j, String elementToCheck) {
 		String toCheck = "";
 		for (int i = 0; i < array[j].length; ++i) {
 			toCheck = toCheck.concat((String.valueOf(array[j][i])));
